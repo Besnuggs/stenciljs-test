@@ -9,11 +9,14 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface AppHome {}
+  interface AppHome {
+    'name': string;
+  }
   interface AppProfile {
     'name': string;
   }
   interface AppRoot {}
+  interface NameComponent {}
 }
 
 declare global {
@@ -36,24 +39,35 @@ declare global {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLNameComponentElement extends Components.NameComponent, HTMLStencilElement {}
+  var HTMLNameComponentElement: {
+    prototype: HTMLNameComponentElement;
+    new (): HTMLNameComponentElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'name-component': HTMLNameComponentElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
+  interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {
+    'name'?: string;
+  }
   interface AppProfile extends JSXBase.HTMLAttributes<HTMLAppProfileElement> {
     'name'?: string;
   }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface NameComponent extends JSXBase.HTMLAttributes<HTMLNameComponentElement> {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'name-component': NameComponent;
   }
 }
 

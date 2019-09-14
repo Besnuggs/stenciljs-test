@@ -1,10 +1,12 @@
-import { Component, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css'
 })
 export class AppHome {
+
+  @Prop() name: string;
 
   render() {
     return [
