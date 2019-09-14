@@ -1,0 +1,32 @@
+{
+  "name": "ionic-pwa-test",
+  "private": true,
+  "version": "0.0.1",
+  "description": "ionic-pwa-test",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@ionic/core": "^4.9.0",
+    "@stencil/redux": "^0.1.1",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@stencil/core": "^1.3.3",
+    "@types/jest": "24.0.18",
+    "@types/puppeteer": "1.19.1",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
+    "puppeteer": "1.19.0"
+  }
+}
