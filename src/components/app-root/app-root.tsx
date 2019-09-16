@@ -15,9 +15,9 @@ export class AppRoot {
   @State() isVisible: boolean = false;
   name: MyAppState["user"]["name"];
   lastName: string = "Snuggs";
-  @State() fullName: string = "Brady Snuggs";
+  fullName: string = "Brady Snuggs";
   newName: string;
-  @State() numberArray: array = [1,2,3,4,5];
+  numberArray: array = [1,2,3,4,5];
 
   @Prop({context: "store"})
   store: Store;
@@ -60,9 +60,8 @@ export class AppRoot {
   // }
 
   render() {
-    console.log(this.fullName)
-    const array = this.numberArray
-    console.log(array)
+    console.log(this)
+    
     return (
       <div>
         Hello, my name is {this.name} {this.lastName}.
@@ -95,7 +94,9 @@ export class AppRoot {
         }
         </div>
 
-        <my-name-input-component />
+        <my-name-input-component 
+        showFunction={this.showNewDiv}
+        />
 
         <div>
           {this.numberArray.map((e, i) => {

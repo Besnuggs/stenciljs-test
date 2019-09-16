@@ -18,6 +18,7 @@ export class nameComponent {
     @Prop({reflect: true}) 
     lastName;
 
+
     componentWillLoad(){
         this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
             const {
@@ -33,11 +34,19 @@ export class nameComponent {
         this.storeUnsubscribe();
     }
 
+    showFromOtherMethod = (ev:Event) => {
+        console.log('this is firing yes?')
+        this.showFunction
+    }
+
     render(){
-        console.log(this.lastName)
+        console.log(this.showFunction)
         return (
             <div>
                 <h1>{this.name} {this.lastName} </h1>
+                <ion-button
+                onClick={this.showFromOtherMethod.bind(this)}
+                >Showing from Another Component</ion-button>
             </div>
             )
     }

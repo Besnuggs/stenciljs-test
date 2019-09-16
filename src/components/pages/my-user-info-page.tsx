@@ -16,6 +16,8 @@ export class nameInputComponent {
     @Prop({context: "store"})
     store: Store;
 
+    @Prop() showFunction: Function
+
     componentWillLoad(){
         this.store.mapDispatchToProps(this, {setUserName});
         this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
@@ -41,6 +43,11 @@ export class nameInputComponent {
                     value={this.name}
                     onInput={(e) => {this.setUserName((e.target as any).value)}}
                 />
+
+                <h1>Passing in Functions</h1>
+                <ion-button
+                onClick={() => this.showFunction()}
+                >Show Me the Div</ion-button>
             </div>
         )
     }

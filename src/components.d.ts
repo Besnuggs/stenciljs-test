@@ -16,7 +16,9 @@ export namespace Components {
     'name': string;
   }
   interface AppRoot {}
-  interface MyNameInputComponent {}
+  interface MyNameInputComponent {
+    'showFunction': Function;
+  }
   interface NameComponent {
     'lastName': any;
   }
@@ -71,7 +73,9 @@ declare namespace LocalJSX {
     'name'?: string;
   }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
-  interface MyNameInputComponent extends JSXBase.HTMLAttributes<HTMLMyNameInputComponentElement> {}
+  interface MyNameInputComponent extends JSXBase.HTMLAttributes<HTMLMyNameInputComponentElement> {
+    'showFunction'?: Function;
+  }
   interface NameComponent extends JSXBase.HTMLAttributes<HTMLNameComponentElement> {
     'lastName'?: any;
   }
