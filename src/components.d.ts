@@ -16,7 +16,10 @@ export namespace Components {
     'name': string;
   }
   interface AppRoot {}
-  interface NameComponent {}
+  interface MyNameInputComponent {}
+  interface NameComponent {
+    'lastName': any;
+  }
 }
 
 declare global {
@@ -40,6 +43,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLMyNameInputComponentElement extends Components.MyNameInputComponent, HTMLStencilElement {}
+  var HTMLMyNameInputComponentElement: {
+    prototype: HTMLMyNameInputComponentElement;
+    new (): HTMLMyNameInputComponentElement;
+  };
+
   interface HTMLNameComponentElement extends Components.NameComponent, HTMLStencilElement {}
   var HTMLNameComponentElement: {
     prototype: HTMLNameComponentElement;
@@ -49,6 +58,7 @@ declare global {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'my-name-input-component': HTMLMyNameInputComponentElement;
     'name-component': HTMLNameComponentElement;
   }
 }
@@ -61,12 +71,16 @@ declare namespace LocalJSX {
     'name'?: string;
   }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
-  interface NameComponent extends JSXBase.HTMLAttributes<HTMLNameComponentElement> {}
+  interface MyNameInputComponent extends JSXBase.HTMLAttributes<HTMLMyNameInputComponentElement> {}
+  interface NameComponent extends JSXBase.HTMLAttributes<HTMLNameComponentElement> {
+    'lastName'?: any;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'my-name-input-component': MyNameInputComponent;
     'name-component': NameComponent;
   }
 }

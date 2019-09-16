@@ -15,6 +15,9 @@ export class nameComponent {
     @Prop({context: 'store'})
     store: Store;
 
+    @Prop({reflect: true}) 
+    lastName;
+
     componentWillLoad(){
         this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
             const {
@@ -32,6 +35,10 @@ export class nameComponent {
 
     render(){
         console.log(this.lastName)
-        return <h1>{this.name} {this.lastName}</h1>
+        return (
+            <div>
+                <h1>{this.name} {this.lastName} </h1>
+            </div>
+            )
     }
 }
